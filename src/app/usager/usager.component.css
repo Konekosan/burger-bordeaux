@@ -1,0 +1,35 @@
+body {
+    margin: 0 15%;
+}
+
+th {
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+}
+
+* {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.action {
+    text-align: right;
+}
+
+.action p-button {
+    width: 10px; /* Largeur */
+    height: 10px; /* Hauteur */
+    font-size: 16px; /* Taille de la police */
+    margin-right: 10px;
+}
+
+.add-button {
+    margin: 0 88%;
+    margin-bottom: 20px;
+  }
+
+  .test {
+    margin-bottom: 20px;
+  }

@@ -1,0 +1,26 @@
+<body>
+    <p-button severity="success" class="add-button" label="Ajouter" icon="pi pi-plus" />
+    <h1>LA référence du Burger</h1>
+    
+    <p>Si vous êtes amateur de burger comme nous, alors votez ! 
+    Voici la liste des différents établissements de burger à Bordeaux classé.</p>
+        <div class="wrapper">
+            @for (etablissement of etablissements; track etablissements) {
+            <div class="box a">
+                <img src="{{ etablissement.image }}">
+                <p></p>
+                <a>Avis: </a>
+                <p-rating [(ngModel)]="etablissement.note" [cancel]="false"/>
+                <h3>{{ etablissement.nom }}</h3>
+                <a>Adresse: </a>
+                <p>{{ etablissement.adresse }}</p>
+                <p></p>
+                <p></p>
+            </div>
+            }
+        </div>
+    Si vous êtes amateur de burger comme nous, alors votez ! 
+    Si vous êtes amateur de burger comme nous, alors votez ! 
+    Si vous êtes amateur de burger comme nous, alors votez ! 
+</body>
+    

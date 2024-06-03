@@ -1,0 +1,9 @@
+body {
+    /* Couleur du texte */
+    /*background-color: linear-gradient(red, transparent);*/
+    background-color: rgb(252, 238, 238); 
+    margin: 0 15%;
+    font-family: cursive;
+    border-radius: 10px;
+    border-bottom: 10px;
+}

@@ -1,0 +1,75 @@
+body {
+    background-color: rgb(252, 238, 238); 
+    margin: 0 15%;
+    font-family: cursive;
+    border-radius: 10px;
+    border-bottom: 10px;
+}
+
+.wrapper {
+  display: grid;
+  /* grid-template-columns: 200px 200px 200px; */
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  grid-gap: 20px;
+  background-color: rgb(252, 238, 238);
+  color: #444;
+}
+    
+.box {
+  background-color: orange;
+  color: black;
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+  mask-image: linear-gradient(black 70%, transparent);
+  -webkit-mask-image: linear-gradient(black 70%, transparent);
+}
+
+.box img {
+  width: 80%;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.rating {
+  display: inline-block;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.rating label:before {
+  content: '\2605'; /* Code Unicode pour une étoile pleine */
+}
+
+.rating input:checked ~ label:before {
+  color: gold; /* Couleur de l'étoile sélectionnée */
+}
+
+body p {
+  margin-left : 20 px;
+}
+
+p {
+  margin-left : 20 px;
+  text-align: center;
+}
+
+.add-button {
+  margin: 0 88%;
+}
