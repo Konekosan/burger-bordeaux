@@ -18,7 +18,13 @@ import { FormsModule } from '@angular/forms';
 import { MenubarModule } from 'primeng/menubar';
 import { DropdownModule } from 'primeng/dropdown';
 import { AddEtablissementModalComponent } from './modal/add-etablissement-modal/add-etablissement-modal.component';
-import { AddEtablissementModalService } from './modal/add-etablissement-modal/add-etablissement-modal.service'
+import { AddEtablissementModalService } from './modal/add-etablissement-modal/add-etablissement-modal.service';
+import { ConfirmModalComponent } from './shared/confirm-modal/confirm-modal.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { InputTextModule } from 'primeng/inputtext';
+import { LoginModalComponent } from './modal/login-modal/login-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddUserModalComponent } from './modal/add-user-modal/add-user-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +35,9 @@ import { AddEtablissementModalService } from './modal/add-etablissement-modal/ad
     AboutUsComponent,
     EtablissementComponent,
     AddEtablissementModalComponent,
+    ConfirmModalComponent,
+    LoginModalComponent,
+    AddUserModalComponent,
     
   ],
   imports: [
@@ -40,9 +49,11 @@ import { AddEtablissementModalService } from './modal/add-etablissement-modal/ad
     RatingModule,
     FormsModule,
     MenubarModule,
-    DropdownModule
+    DropdownModule,
+    InputTextModule,
+    ReactiveFormsModule
   ],
-  providers: [UsagerService, EtablissementService, AddEtablissementModalService],
+  providers: [UsagerService, EtablissementService, AddEtablissementModalService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

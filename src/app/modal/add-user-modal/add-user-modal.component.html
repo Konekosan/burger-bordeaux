@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Ajouter un Usager</h1>
+<body>
+<div mat-dialog-content [formGroup]="usagerForm">
+  <p>Nom</p>
+  <input formControlName="nom" type="text" class="large-input" pInputText />
+  <p>Prenom</p>
+  <input formControlName="prenom" type="text" class="large-input" pInputText />
+  <p>Age</p>
+  <input formControlName="age" type="text" class="large-input" pInputText />
+  <p>Identifiant</p>
+  <input formControlName="username" type="text" class="large-input" pInputText />
+  <p>Mot de passe</p>
+  <input formControlName="hashed_pwd" type="password" class="large-input" pInputText />
+  <p>Est Actif</p>
+  <input formControlName="is_active" type="text" class="large-input" pInputText />
+</div>
+</body>
+<div mat-dialog-actions>
+  <p-button class="add-button" (click)="onSubmit()" severity="success" label="Ajouter" icon="pi pi-plus"/>
+  <p-button class="delete-button" (click)="onNoClick()" severity="danger" label="Fermer" icon="pi pi-trash"/>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { LoginModalService } from '../modal/login-modal/login-modal.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -10,7 +11,7 @@ import { MenuItem } from 'primeng/api';
 export class TopBarComponent {
   items: MenuItem[];
 
-  constructor() {
+  constructor(private loginModalComponent: LoginModalService) {
     this.items = [
         {
             label: 'Admin',
@@ -21,6 +22,10 @@ export class TopBarComponent {
         },
     ];
   
+  }
+
+  openDialog(): void {
+    this.loginModalComponent.openModal({ data: 'Some data to pass' });
   }
 
 }

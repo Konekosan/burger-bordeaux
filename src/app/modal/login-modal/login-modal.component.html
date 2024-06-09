@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Se connecter</h1>
+<body>
+<div mat-dialog-content>
+  <p>Identifiant</p>
+  <input type="text" class="large-input" pInputText />
+  <p>Mot de passe</p>
+  <input type="password" class="large-input" pInputText />
+</div>
+</body>
+<div mat-dialog-actions>
+  <p-button class="add-button" (click)="onNoClick()" severity="success" label="Ajouter" icon="pi pi-plus"/>
+  <p-button class="delete-button" (click)="onNoClick()" severity="danger" label="Fermer" icon="pi pi-trash"/>
+</div>

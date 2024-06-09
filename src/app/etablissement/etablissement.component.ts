@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EtablissementService } from './etablissement.service';
+import { AddEtablissementModalService } from '../modal/add-etablissement-modal/add-etablissement-modal.service'
 
 @Component({
   selector: 'app-etablissement',
@@ -9,12 +10,16 @@ import { EtablissementService } from './etablissement.service';
 export class EtablissementComponent {
   etablissements: any = [];
 
-  constructor(private etablissementService: EtablissementService) { }
+  constructor(private etablissementService: EtablissementService,
+              private modalEtablissement: AddEtablissementModalService) { }
 
   ngOnInit() {
     this.etablissementService.getEtablissements().subscribe((data: any) => {
       this.etablissements = data[0];
-      console.log(this.etablissements);
     });
+  }
+
+  openDialog(): void {
+    this.modalEtablissement.openModal({ data: 'Some data to pass' });
   }
 }
