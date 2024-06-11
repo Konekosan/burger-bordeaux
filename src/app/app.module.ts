@@ -25,6 +25,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { LoginModalComponent } from './modal/login-modal/login-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddUserModalComponent } from './modal/add-user-modal/add-user-modal.component';
+import { LoginModalService } from './modal/login-modal/login-modal.service';
+import { MessageBarComponent } from './shared/message-bar/message-bar.component';
+import { LoginComponent } from './authentication/login/login.component'
+import { LoginService } from './authentication/login/login.service'
 
 @NgModule({
   declarations: [
@@ -38,6 +42,8 @@ import { AddUserModalComponent } from './modal/add-user-modal/add-user-modal.com
     ConfirmModalComponent,
     LoginModalComponent,
     AddUserModalComponent,
+    MessageBarComponent,
+    LoginComponent,
     
   ],
   imports: [
@@ -53,7 +59,12 @@ import { AddUserModalComponent } from './modal/add-user-modal/add-user-modal.com
     InputTextModule,
     ReactiveFormsModule
   ],
-  providers: [UsagerService, EtablissementService, AddEtablissementModalService, provideAnimationsAsync()],
+  providers: [UsagerService,
+              EtablissementService, 
+              AddEtablissementModalService,
+              LoginModalService,
+              LoginService,
+              provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

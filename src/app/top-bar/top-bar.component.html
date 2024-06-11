@@ -12,6 +12,12 @@
       <li><a href="#">Contact</a></li>
       <li><a (click)="openDialog()">Se connecter</a></li>
     </ul>
+    <div>
+      <div *ngIf="usagerInfo">
+        <p>{{usagerInfo.id}}</p>
+        <button (click)="logout()" >Deconnexion</button>
+      </div>
+    </div>
     <button class="search">Search</button>
     <button class="menu">Menu</button>
 </nav>
