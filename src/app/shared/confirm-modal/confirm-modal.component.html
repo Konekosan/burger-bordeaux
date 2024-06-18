@@ -1,8 +1,9 @@
 <h1 mat-dialog-title>Confirmation</h1>
 <body>
-    Etes vous sur de vouloir effectuer cette action?
+  <p>{{data.data}}</p>
+  <p>Etes vous sur de vouloir effectuer cette action?</p>
 </body>
 <div mat-dialog-actions>
-  <p-button class="add-button" severity="success" label="Ajouter" icon="pi pi-plus"/>
-  <p-button class="delete-button" severity="danger" label="Fermer" icon="pi pi-trash"/>
+  <p-button (click)="onSubmit()" class="add-button" severity="success" label="Ajouter" icon="pi pi-plus"/>
+  <p-button (click)="onCancel()" class="delete-button" severity="danger" label="Fermer" icon="pi pi-trash"/>
 </div>

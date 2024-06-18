@@ -11,8 +11,11 @@
   <input formControlName="username" type="text" class="large-input" pInputText />
   <p>Mot de passe</p>
   <input formControlName="hashed_pwd" type="password" class="large-input" pInputText />
-  <p>Est Actif</p>
-  <input formControlName="is_active" type="text" class="large-input" pInputText />
+  <p>Confirmation Mot de passe</p>
+  <input formControlName="confirmPassword" type="password" class="large-input" pInputText />
+  <div *ngIf="usagerForm.get('confirmPassword')?.touched && usagerForm.hasError('mismatch')" class="error-message">
+    Les mots de passe ne correspondent pas.
+  </div>
 </div>
 </body>
 <div mat-dialog-actions>

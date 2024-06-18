@@ -1,7 +1,9 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormGroup, FormControl } from '@angular/forms';
 import { EtablissementService } from '../../etablissement/etablissement.service';
+import { MessageBarService } from '../../shared/message-bar/message-bar.service';
+import { messages } from '../../model/messages.model';
 
 @Component({
   selector: 'app-add-etablissement-modal',
@@ -9,17 +11,16 @@ import { EtablissementService } from '../../etablissement/etablissement.service'
   styleUrl: './add-etablissement-modal.component.css'
 })
 
-export class AddEtablissementModalComponent {
+export class AddEtablissementModalComponent implements OnInit{
 
-  value = 1;
   datas = {};
   etablissementForm: FormGroup;
 
   constructor(
     public dialogRef: MatDialogRef<AddEtablissementModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private etablissementService: EtablissementService
-  ) {}
+    private etablissementService: EtablissementService,
+    private messageBarService: MessageBarService) {}
 
   ngOnInit(): void {
     this.initFormGroup();
@@ -39,15 +40,17 @@ export class AddEtablissementModalComponent {
   onSubmit(): void {
     this.datas = {
       "parameter": this.etablissementForm.value
-    } 
-    console.log(this.datas);
+    }
     this.etablissementService.createEtablissement(this.datas).subscribe(
       response => {
-        console.log('Response from API:', response);
+        this.messageBarService.setMessage(messages.SUCCES.MESSAGE_SUCCES_ETABLISSEMENT);
+        this.messageBarService.toggleMessageBarSuccess();
         this.dialogRef.close();
       },
       error => {
-        console.error('Error from API:', error);
+        this.messageBarService.setMessage(messages.ERREUR.MESSAGE_ERREUR);
+        this.messageBarService.toggleMessageBarError();
+        this.dialogRef.close();
       }
     );;
     

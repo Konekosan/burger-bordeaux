@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EtablissementService } from './etablissement.service';
 import { AddEtablissementModalService } from '../modal/add-etablissement-modal/add-etablissement-modal.service'
 
@@ -7,7 +7,7 @@ import { AddEtablissementModalService } from '../modal/add-etablissement-modal/a
   templateUrl: './etablissement.component.html',
   styleUrl: './etablissement.component.css'
 })
-export class EtablissementComponent {
+export class EtablissementComponent implements OnInit{
   etablissements: any = [];
 
   constructor(private etablissementService: EtablissementService,
@@ -15,7 +15,7 @@ export class EtablissementComponent {
 
   ngOnInit() {
     this.etablissementService.getEtablissements().subscribe((data: any) => {
-      this.etablissements = data[0];
+      this.etablissements = data;
     });
   }
 

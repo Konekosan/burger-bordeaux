@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Modifier un Usager</h1>
+<body>
+<div mat-dialog-content >
+  <p>Nom</p>
+  <input [(ngModel)]="usager.nom"  type="text" class="large-input" pInputText />
+  <p>Prenom</p>
+  <input [(ngModel)]="usager.prenom" type="text" class="large-input" pInputText />
+  <p>Age</p>
+  <input [(ngModel)]="usager.age" type="text" class="large-input" pInputText />
+  <p>Identifiant</p>
+  <input [(ngModel)]="usager.username" type="text" class="large-input" pInputText />
+  <p>Mot de passe</p>
+  <input [(ngModel)]="usager.hashed_pwd" disabled="true" type="password" class="large-input" pInputText />
+</div>
+</body>
+<div mat-dialog-actions>
+  <p-button class="add-button" (click)="onSubmit()" severity="info" label="Modifier" icon="pi pi-pencil"/>
+  <p-button class="delete-button" (click)="onNoClick()" severity="danger" label="Fermer" icon="pi pi-trash"/>
+</div>

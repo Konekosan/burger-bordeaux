@@ -1,3 +1,4 @@
+<app-message-bar></app-message-bar>
 <body>
     <p-button (click)="openDialog()" severity="success" class="add-button" label="Ajouter" icon="pi pi-plus"/>
     <h1>LA référence du Burger</h1>
@@ -10,8 +11,9 @@
                 <img src="{{ etablissement.image }}">
                 <p></p>
                 <a>Avis: </a>
-                <p-rating [(ngModel)]="etablissement.note" [cancel]="false"/>
-                <h3>{{ etablissement.nom }}</h3>
+                <p-rating [(ngModel)]="etablissement.note_moyenne" [cancel]="false"/>
+                <p>Note: {{ etablissement.note_moyenne }} </p>
+                <h2>{{ etablissement.nom }}</h2>
                 <a>Adresse: </a>
                 <p>{{ etablissement.adresse }}</p>
                 <p></p>

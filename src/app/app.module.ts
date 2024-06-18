@@ -26,9 +26,15 @@ import { LoginModalComponent } from './modal/login-modal/login-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddUserModalComponent } from './modal/add-user-modal/add-user-modal.component';
 import { LoginModalService } from './modal/login-modal/login-modal.service';
-import { MessageBarComponent } from './shared/message-bar/message-bar.component';
 import { LoginComponent } from './authentication/login/login.component'
-import { LoginService } from './authentication/login/login.service'
+import { LoginService } from './authentication/login/login.service';
+import { UsagerInfoComponent } from './usager-info/usager-info.component';
+import { ContactComponent } from './contact/contact.component';
+import { MessageBarComponent } from './shared/message-bar/message-bar.component';
+import { MessageBarSuccessComponent } from './shared/message-bar/message-bar-success/message-bar-success.component';
+import { MessageBarInfoComponent } from './shared/message-bar/message-bar-info/message-bar-info.component';
+import { MessageBarDeleteComponent } from './shared/message-bar/message-bar-delete/message-bar-delete.component';
+import { EditUserModalComponent } from './modal/edit-user-modal/edit-user-modal.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +48,14 @@ import { LoginService } from './authentication/login/login.service'
     ConfirmModalComponent,
     LoginModalComponent,
     AddUserModalComponent,
-    MessageBarComponent,
     LoginComponent,
+    UsagerInfoComponent,
+    ContactComponent,
+    MessageBarComponent,
+    MessageBarSuccessComponent,
+    MessageBarInfoComponent,
+    MessageBarDeleteComponent,
+    EditUserModalComponent
     
   ],
   imports: [

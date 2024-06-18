@@ -1,3 +1,4 @@
+<app-message-bar></app-message-bar>
 <body>
     <h2>Liste des usagers</h2>
     <div class="test">
@@ -23,8 +24,8 @@
                     <td>{{ data.is_active }}</td>
                     <td>
                         <div class="action">
-                            <p-button severity="info" label="Modifier" icon="pi pi-trash" />
-                            <p-button severity="danger" label="Supprimer" icon="pi pi-times" (click)="removeUsager(data.id)"/>
+                            <p-button (click)="editUsager(data.id)" severity="info" label="Modifier" icon="pi pi-trash" />
+                            <p-button severity="danger" label="Supprimer" icon="pi pi-times" (click)="removeUsager(data.id, data.nom, data.prenom)"/>
                         </div>
                     </td>
                 </tr>

@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddUserModalComponent } from './add-user-modal.component';
+import { EditUserModalComponent } from './edit-user-modal.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AddUserModalService {
-  datas: any[] = [];
+export class EditUserModalService {
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) { }
 
   openModal(data: any){
     
-    const dialogRef = this.dialog.open(AddUserModalComponent, {
+    const dialogRef = this.dialog.open(EditUserModalComponent, {
       width: '800px',
-      height: '650px',
+      height: '550px',
       data: data,
     });
 

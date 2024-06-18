@@ -2,6 +2,8 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { LoginModalService } from '../modal/login-modal/login-modal.service';
 import { LoginService } from '../authentication/login/login.service'
+import { RolePermissionsService } from '../authentication/role-permissions.service'
+import { combineLatest } from 'rxjs';
 
 
 @Component({
@@ -10,14 +12,15 @@ import { LoginService } from '../authentication/login/login.service'
   styleUrl: './top-bar.component.css'
 })
 
-export class TopBarComponent {
+export class TopBarComponent implements OnInit{
   items: MenuItem[];
   usagerInfo: any;
   token: string | null = null;
-
+  showAdminButton: Boolean = false;
+  
   constructor(private loginModalComponent: LoginModalService,
-      private loginService:LoginService
-      ) {
+              private loginService: LoginService,
+              private rolePermissionService: RolePermissionsService) {
     this.items = [
       {
         label: 'Admin',
@@ -29,40 +32,22 @@ export class TopBarComponent {
     ];
   }
 
-  ngOnChanges(): void {
-
-  }
-
   ngOnInit(): void {
-    this.loginService.currentUserInfo.subscribe(
-      info => {
-        this.usagerInfo = info;
-        console.log('usager info', this.usagerInfo);
-      }
-    )
-    this.token = localStorage.getItem('token');
-    if (this.token) {
-      this.getUser();
-    }
+    combineLatest([
+      this.loginService.currentUserInfo,
+      this.rolePermissionService.hasPermission('canSeeAdmin')
+    ]).subscribe(([userInfo, hasPermission]) => {
+      this.usagerInfo = userInfo;
+      this.showAdminButton = hasPermission;
+    }, error => {
+      console.log('Erreur lors de la récupération ', error);
+    });
   }
-
-  getUser() {
-    if (this.token) {
-      this.loginService.getCurrentUser(this.token).subscribe(
-        response => {
-          console.log('User info', response);
-          this.loginService.updateUserInfo(response);
-        },
-        error => {
-          console.log('Failed ', error);
-        }
-      );
-    }
-  }
-
+  
   logout() {
     this.loginService.logout();
     this.usagerInfo = null;
+    this.showAdminButton = false;
   }
   
   openDialog(): void {

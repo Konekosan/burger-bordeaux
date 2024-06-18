@@ -2,22 +2,21 @@
     <a href="#">Burger Bordeaux</a>
     <ul class="list">
       <li><a routerLink="/about-us" routerLinkActive="active">A propos</a></li>
-      <li><a routerLink="/usagers/" routerLinkActive="active">Usagers</a></li>
-      <li class="dropdown-menu">
-        admin
-        <div class="p-menuitem-link" model="items">
-          
-      </div>
+      <li><a routerLink="/usagers/" *ngIf="showAdminButton" routerLinkActive="active">Usagers</a></li>
+      <li><a *ngIf="showAdminButton">Admin</a></li>
+      <li><a routerLink="/contact/">Contact</a></li>
+      <li><a *ngIf="!usagerInfo" (click)="openDialog()">Se connecter</a></li>
+      <li>
+        <div class="loggedin" *ngIf="usagerInfo">
+          <i class="pi pi-user" style="font-size: 1.5rem"></i>
+          <a class="userinfoname" routerLink="/me/">
+            <p>{{usagerInfo.nom}} {{usagerInfo.prenom}}</p>
+          </a>
+          <button class="info-button p-button-sm" (click)="logout()" *ngIf="usagerInfo">Deconnexion</button>
+        </div>
       </li>
-      <li><a href="#">Contact</a></li>
-      <li><a (click)="openDialog()">Se connecter</a></li>
     </ul>
-    <div>
-      <div *ngIf="usagerInfo">
-        <p>{{usagerInfo.id}}</p>
-        <button (click)="logout()" >Deconnexion</button>
-      </div>
-    </div>
+    
     <button class="search">Search</button>
     <button class="menu">Menu</button>
 </nav>
